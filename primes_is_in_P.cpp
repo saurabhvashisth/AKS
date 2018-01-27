@@ -58,12 +58,12 @@ polynomial operator^(polynomial x, int b) {
 }
 
 int operator!=(polynomial x, polynomial y) {
-	if (x.getSize() != y.getSize()) return 0;
+	if (x.getSize() != y.getSize()) return 1;
 	int sz = x.getSize();
 	for (int i = 0; i < sz; i++){
-		if (x.get(i) != y.get(i)) return 0;
+		if (x.get(i) != y.get(i)) return 1;
 	}
-	return 1;
+	return 0;
 }
 
 int step2(void) {
@@ -99,9 +99,9 @@ bool step5(void) {
 		l = l ^ N;
 		r.set(N % R, 1);
 		r.set(0, (r.get(0) + i) % N);
-		if (l != r) return false; // check this
+		if (l != r) return true; // check this
 	}
-	return true;
+	return false;
 }
 
 // check greater than N 
